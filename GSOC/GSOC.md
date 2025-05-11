@@ -1,3 +1,8 @@
+
+Currently using Resources:
+
+- [GSOC 2025](GSOC/Resources)
+
 # Google Summer Of Code 2025 With Waycrate
 
 I'm glad to able to participate in [Google's Summer of Code](https://en.wikipedia.org/wiki/Google_Summer_of_Code) 2025 program with [Waycrate](https://waycrate.github.io/index.html). I have been looking into GSoC for a few months and I'm happy that after a rabbit hole of looking at different projects that I was able to find a project I was interested in.
