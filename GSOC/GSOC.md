@@ -1,7 +1,7 @@
 
 Currently using Resources:
 
-- [GSOC 2025](GSOC/Resources)
+- [GSOC 2025](Resources)
 
 # Google Summer Of Code 2025 With Waycrate
 
