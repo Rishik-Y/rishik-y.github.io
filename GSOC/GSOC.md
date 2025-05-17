@@ -7,3 +7,4 @@ I dont have any idea as to what exactly i should document per say but i plan to 
 - [13/06/25](May_13_25.md)
 - [14/06/25](May_14_25.md)
 - [15/06/25](May_15_25.md)
+- [17/06/25](May_17_25.md)
