@@ -5,13 +5,11 @@ use wayland_client::{
     Connection, Dispatch, QueueHandle,
 };
 
-// The state structure to hold registry data and outputs
 struct AppData {
     globals: Vec<(u32, String, u32)>,
     outputs: Vec<(u32, wl_output::WlOutput)>,
 }
 
-// Implementation of the Registry handler
 impl Dispatch<wl_registry::WlRegistry, ()> for AppData {
     fn event(
         state: &mut Self,
@@ -32,10 +30,8 @@ impl Dispatch<wl_registry::WlRegistry, ()> for AppData {
                     name, interface, version
                 );
                 
-                // Store all globals
                 state.globals.push((name, interface.clone(), version));
                 
-                // Bind to wl_output interfaces
                 if interface == "wl_output" {
                     let output = registry.bind::<wl_output::WlOutput, _, _>(name, version, qh, ());
                     state.outputs.push((name, output));
@@ -44,10 +40,8 @@ impl Dispatch<wl_registry::WlRegistry, ()> for AppData {
             wl_registry::Event::GlobalRemove { name } => {
                 println!("Global removed: name={}", name);
                 
-                // Remove from globals list
                 state.globals.retain(|(n, _, _)| *n != name);
                 
-                // Remove from outputs list if it's there
                 state.outputs.retain(|(n, _)| *n != name);
             }
             _ => {}
@@ -55,7 +49,6 @@ impl Dispatch<wl_registry::WlRegistry, ()> for AppData {
     }
 }
 
-// Implementation of the Output handler
 impl Dispatch<wl_output::WlOutput, ()> for AppData {
     fn event(
         _state: &mut Self,
@@ -113,31 +106,24 @@ impl Dispatch<wl_output::WlOutput, ()> for AppData {
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // Connect to the Wayland server
     let conn = Connection::connect_to_env()?;
     
-    // Create a new event queue
     let mut event_queue = conn.new_event_queue();
     let qh = event_queue.handle();
     
-    // Initialize state
     let app_data = Rc::new(RefCell::new(AppData {
         globals: Vec::new(),
         outputs: Vec::new(),
     }));
     
-    // Get the Wayland display object
     let display = conn.display();
     println!("WlDisplay object created: {:?}", display);
     
-    // Get the registry
     let registry = display.get_registry(&qh, ());
     println!("WlRegistry object created: {:?}", registry);
     
-    // Roundtrip to process initial events
     event_queue.roundtrip(&mut *app_data.borrow_mut())?;
     
-    // Print summary of each stuff
     {
         let data = app_data.borrow();
         
@@ -152,9 +138,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         for (id, _) in &data.outputs {
             println!("Output ID: {}", id);
         }
-    } // data is dropped here, releasing the borrow
+    }
     
-    // Process remaining events
     event_queue.roundtrip(&mut *app_data.borrow_mut())?;
     
     println!("\nWayland client completed successfully");
