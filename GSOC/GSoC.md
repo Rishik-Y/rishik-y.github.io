@@ -16,7 +16,8 @@ In a very layman terms, it is making a screenshot tool making it cross compatibl
 Now for those who didn't a single thing go through this first,
 as I believe you can understand atleast the basics of Linux,
 
-Basics for Newbie in Linux:
+<details>
+<summary>What is Linux?</summary>
 What is Linux?
 Think of Linux as Basically an Operating System,
 
@@ -37,30 +38,7 @@ X11 is the older one and Wayland is the newer one.
 - Wayland is the newer one and is more efficient and is great working with latest monitors.
 
 X11 is slowly becoming obsolete and being replaced by Wayland.
-
-
-<details>
-<summary>Basics for Newbie in Linux</summary>
-
-**What is Linux?**  
-Linux is basically an Operating System.
-
-**What is an Operating System?**  
-Windows or Mac are Operating Systems; Linux is another Operating System.
-
-**Display Models in Linux:**  
-Unlike Windows and Mac, Linux is flexible in display nature.  
-There are two main display models:  
-1\. X11  
-2\. Wayland
-
-**Difference between X11 and Wayland:**  
-\- X11 is older and works well on Linux.  
-\- Wayland is newer, more efficient, and better for modern monitors.  
-X11 is slowly being replaced by Wayland.
-
 </details>
-
 
 
 
