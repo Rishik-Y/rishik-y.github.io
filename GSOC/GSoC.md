@@ -21,12 +21,5 @@ Now for those who didn't understand a single thing go through this first,\
 
 [What is Wayland Compositor?](What_is_wayland_compositor.md)
 
-<details>
-<summary>What is a Wayland Compositor?</summary>
-It's basically a program that manages how all other programs on your system are displayed. All your programs draw stuff 
-and pass it to your compositor which ultimately draws them onto your monitor after adding stuff like window decorations. 
-It's responsible for a large part of the Linux desktop user experience
-</details>
-
 I would highly recommend for people who do use linux but haven't explored the depth of linux to go through this documentation as well.
 
