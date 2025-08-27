@@ -11,3 +11,10 @@ KDE plasma (Desktop Environment) uses Kwin as its compositor.
 
 Now Each compositor has its own way of doing things and simply uses wayland protocol to communicate with the client.
 
+To be precise, Wayland simply is a protocol that defines how a client should
+communicate with a compositor. \
+Wayland cannot work without a compositor unlike X11.
+
+Now thats out of the way, 
+These compositors utilizes the wayland protocols.
+
