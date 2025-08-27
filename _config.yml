@@ -1,0 +1,61 @@
+# Site settings
+title: "Rishik Y - GSoC 2025 Blog"
+description: "Documentation of my Google Summer of Code 2025 journey with Waycrate"
+baseurl: ""
+url: "https://rishik-y.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Performance optimizations
+incremental: true
+regenerate: true
+safe: false
+
+# Plugin configurations  
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .github/
+  - README.md
+
+# Default layouts for existing structure
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: "GSOC"
+      type: "pages"
+    values:
+      layout: "default"
+
+# Sass configuration for faster compilation
+sass:
+  style: compressed
+  sass_dir: _sass
+
+# Kramdown options for faster parsing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
