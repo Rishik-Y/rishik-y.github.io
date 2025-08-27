@@ -33,7 +33,7 @@ Scratch that, As Linux is actually a kernal!
 
 Now what is a kernal?\
 It's basically the core of the Operating System.\
-When in a conversation, we metaphorically say that Linux is an Operating System, which comprises of all the distro's present out there which rely on Linux kernal.
+When in a conversation, we metaphorically say that Linux is an Operating System, which comprises of all the distro's (Ubuntu, Fedora, Opensuse) present out there which rely on Linux kernal.
 
 So from now on out! \
 I will be refering Linux as a kernal.
