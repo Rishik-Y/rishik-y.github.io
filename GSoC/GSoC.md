@@ -13,9 +13,6 @@ So for people who are professionals in Linux, please go easy on me, for simplify
 So what is the project on about? \
 In a very layman terms, it is making a existing screenshot tool making it cross compatible across all wayland based compositors from wlroots based compositors.
 
-Wayshot is a screen capture client for Wayland compositors (which in this instance act as servers) that 
-implement the wlr-screencopy protocol (which at this point is mostly compositors based on the wlroots library like sway , river, etc).
-
 Now for those who didn't understand a single thing go through this first,\
 [What is Linux?](What_is_linux.md)
 
@@ -23,3 +20,7 @@ Now for those who didn't understand a single thing go through this first,\
 
 I would highly recommend for people who do use linux but haven't explored the depth of linux to go through this documentation as well.
 
+Coming back to the project,
+The screenshot tool which we are speaking of is Wayshot.
+Wayshot is a screen capture client for Wayland compositors (which in this instance act as servers) that
+implement the wlr-screencopy protocol (which at this point is mostly compositors based on the wlroots library like sway , river, etc).
