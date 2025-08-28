@@ -35,4 +35,9 @@ This allows us to run Wayshot on any compositor that supports this latest protoc
 Adopting the official protocol will also offer us toplevel capture capabilities natively and using it we can further improve the user experience.
 The Main Idea is to turn the existing wlr backend into a legacy codebase for backwards compatibility and add addition features such as notification when a particular app-id is being recorded by wayshot clients etc.
 
-It's all a bit steeped in domain specific knowledge which is distributed all over the internet. I have an unorganized and non-exhaustive pile of links I used to get a better idea of the problem which may be of interest to some: GsoC Research Links
+It's all a bit steeped in domain specific knowledge which is distributed all over the internet. 
+I have an unorganized and non-exhaustive pile of links I used to get a better idea of the problem which may be of interest to some: [Research Links](Resources.md)
+
+For a thorough explanation on my though process from start to finish, please go through this: [My Thought Process](Thought_Process.md)
+
+For a Direct Info on the end changes I made, please go through this: [My End Changes](End_Changes.md)

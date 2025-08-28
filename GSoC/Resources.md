@@ -50,8 +50,6 @@ https://github.com/pop-os/cosmic-comp/blob/master/src/wayland/protocols/image_ca
 
 https://github.com/swaywm/sway/blob/master/protocols/meson.build
 
-
-
 Unnecesary but Related:
 
 https://opensource.googleblog.com/2022/05/GSoC-2022-Accepted-Contributor-Announced.html
