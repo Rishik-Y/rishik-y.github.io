@@ -7,26 +7,14 @@ What bugs I encountered,
 What I learned,
 What I new features can be added for the people next!
 
-I will be explaining in a manner such that even newbie in Linux could understand,
-So for people who are professionals in Linux, please go easy on me, for simplifying some parts of the documentation.
-
 So what is the project on about? \
 In a very layman terms, it is making a existing screenshot tool making it cross compatible across all wayland based compositors from wlroots based compositors.
 
-Now for those who didn't understand a single thing go through this first,\
-[What is Linux?](What_is_linux.md)
-
-[What is Wayland Compositor?](What_is_wayland_compositor.md)
-
-I would highly recommend for people who do use linux but haven't explored the depth of linux to go through this documentation as well.
-
-Coming back to the project, \
-The screenshot tool which we are speaking of is Wayshot. \
-Wayshot is a screen capture client for Wayland compositors (which in this instance act as servers) that
+Here, Wayshot is a screen capture client for Wayland compositors (which in this instance act as servers) that
 implement the wlr-screencopy protocol (which at this point is mostly compositors based on the wlroots library like sway , river, etc).
 
 Right now,
-Wayshot currently supports CPU-based and GPU-based capture over wlr-screencopy protocol which is non-standard. 
+Wayshot currently uses wlr-screencopy protocol which is non-standard. 
 Its main drawback is that it works only on wlr-based compositors which means Wayshot as of till now can't be used on compositors like Mutter, Cosmic, Kwin
 
 My Project will be to modify libwayshot and wayshot such that it uses "ext_image_capture_source_v1" protocol, which has been introduced to Wayland,
@@ -38,6 +26,11 @@ The Main Idea is to turn the existing wlr backend into a legacy codebase for bac
 It's all a bit steeped in domain specific knowledge which is distributed all over the internet. 
 I have an unorganized and non-exhaustive pile of links I used to get a better idea of the problem which may be of interest to some: [Research Links](Resources.md)
 
-For a thorough explanation on my though process from start to finish, please go through this: [My Thought Process](Thought_Process.md)
+For a thorough explanation on my though process from start to finish, please go through this: [My Thought Process](Though_Process/Thought_Process_1.md)
 
 For a Direct Info on the end changes I made, please go through this: [My End Changes](End_Changes.md)
+
+
+
+I will be explaining in a manner such that even newbie in Linux could understand,
+So for people who are professionals in Linux, please go easy on me, for simplifying some parts of the documentation.
