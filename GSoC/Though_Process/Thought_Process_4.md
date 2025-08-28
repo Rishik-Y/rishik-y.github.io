@@ -43,5 +43,5 @@ Even though it’s not part of Wayshot directly, this little detour helped me:
 * See how roundtrips and event queues are used to sync state
 * Feel a little less lost in the Wayland world :)
 
-<- Back [15/06/25](Thought_Process_3.md)<br>
-Forward: [21/06/25](Thought_Process_5.md) ->
+<- Back [Back](Thought_Process_3.md)<br>
+Forward: [Next](Thought_Process_5.md) ->

@@ -70,5 +70,5 @@ and makes it easier to test Wayshot in realistic environments.
 
 Now forward to digging into actual protocol-level work now that the environment is in place.
 
-<- Back [13/06/25](Thought_Process_2.md)<br>
-Forward: [15/06/25](Thought_Process_4.md) ->
+<- Back [Back](Thought_Process_2.md)<br>
+Forward: [Next](Thought_Process_4.md) ->
