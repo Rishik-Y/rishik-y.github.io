@@ -39,10 +39,10 @@ You dont know what sway is? \
 [sway](https://github.com/swaywm/sway "sway") is an [i3](https://github.com/swaywm/sway "i3")-compatible tiling Wayland compositor.
 
 What is a Wayland compositor?
-Go through [here](../What_is_wayland_compositor.md)
+Go through [here](What_is_wayland_compositor.md)
 
 What is wayland? (Did you even understand what i wrote till this point!?!)<br>
-Go through [here](../What_is_linux.md)
+Go through [here](What_is_linux.md)
 
 Now going coming back to out initial question,<br>
 we are running sway with a 2 monitor setup,<br>
