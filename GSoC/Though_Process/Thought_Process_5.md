@@ -37,5 +37,5 @@ The image below is one of the very first captures I took using the new `ext_imag
 
 ![Wayshot-11111111.webp](Wayshot-11111111.webp)
 
-\<- Back: [Back](Thought_Process_5.md)<br>
+\<- Back: [Back](Thought_Process_4.md)<br>
 Forward: [Next](Thought_Process_6.md) ->
