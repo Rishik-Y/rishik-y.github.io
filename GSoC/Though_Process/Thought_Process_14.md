@@ -22,6 +22,8 @@ Alas, this brings my development journey to a close. I'm happy to report that al
 
 This project would not have been successful without the incredible guidance and support from my mentors and the other members of the Waycrate community. A huge thank you to all of them\! 🙏
 
-You can now see the final changes I made [here](../End_Changes.md)
+You can now see the final changes I made [here](../End_Changes.md)<br>
+or<br>
+You can wish to view some of my interesting Bugs [here](Blooper.md)
 
 <- Back: [Back](Thought_Process_13.md)
