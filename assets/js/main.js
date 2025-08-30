@@ -194,6 +194,14 @@ class GSoCDocumentation {
         try {
             const response = await fetch(filePath);
             if (!response.ok) {
+                // If file not found, try alternative paths
+                if (response.status === 404 && filePath.includes('Though_Process/')) {
+                    const altPath = filePath.replace('Though_Process/', '');
+                    const altResponse = await fetch(`GSoC/${altPath}`);
+                    if (altResponse.ok) {
+                        return await altResponse.text();
+                    }
+                }
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             return await response.text();
