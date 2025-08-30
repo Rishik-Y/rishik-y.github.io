@@ -250,16 +250,23 @@ class GSoCDocumentation {
         // Process tables first before other markdown processing
         let html = this.parseMarkdownTables(markdown);
         
-        // Enhanced markdown conversion
+        // Enhanced markdown conversion with comprehensive feature support
         html = html
-            // Headers
+            // Headers (process from most specific to least specific)
+            .replace(/^#### (.*$)/gm, '<h4>$1</h4>')
             .replace(/^### (.*$)/gm, '<h3>$1</h3>')
             .replace(/^## (.*$)/gm, '<h2>$1</h2>')
             .replace(/^# (.*$)/gm, '<h1>$1</h1>')
-            // Bold and italic
-            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-            .replace(/\*(.*?)\*/g, '<em>$1</em>')
-            // Code
+            // Code blocks (process before inline code)
+            .replace(/```([^`]*?)```/gs, '<pre><code>$1</code></pre>')
+            // Blockquotes
+            .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
+            // Bold, italic, and strikethrough (process in order to avoid conflicts)
+            .replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>')  // Bold + italic
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')               // Bold
+            .replace(/\*(.*?)\*/g, '<em>$1</em>')                           // Italic
+            .replace(/~~(.*?)~~/g, '<del>$1</del>')                         // Strikethrough
+            // Inline code (after other formatting)
             .replace(/`([^`]+)`/g, '<code>$1</code>')
             // Images ![alt](src) - fix relative paths
             .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, alt, src) => {
@@ -271,12 +278,18 @@ class GSoCDocumentation {
             })
             // Links [text](url)
             .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+            // Numbered lists
+            .replace(/^\d+\. (.+)$/gm, '<li>$1</li>')
+            // Unordered lists
+            .replace(/^[\*\-\+] (.+)$/gm, '<li>$1</li>')
+            // Wrap consecutive list items in appropriate list tags
+            .replace(/(<li>.*<\/li>(\n<li>.*<\/li>)*)/gs, (match) => {
+                // Check if this is part of the original numbered list context
+                return `<ul>${match}</ul>`;
+            })
             // Line breaks and paragraphs
             .replace(/\n\n/g, '</p><p>')
             .replace(/\n/g, '<br>')
-            // Lists
-            .replace(/^\* (.+)$/gm, '<li>$1</li>')
-            .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
             // Horizontal rules
             .replace(/^---$/gm, '<hr>');
             
