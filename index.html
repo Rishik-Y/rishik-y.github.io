@@ -3,187 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GSoC 2025 - Wayshot Cross-Compositor Support | Rishik Y</title>
-    <meta name="description" content="Documentation for Google Summer of Code 2025 project: Making Wayshot cross-compatible across all Wayland compositors using ext-image-capture protocols.">
-    <meta name="keywords" content="GSoC 2025, Google Summer of Code, Wayland, Wayshot, ext-image-capture, wlroots, COSMIC, Waycrate">
+    <title>Rishik Y - Developer Portfolio</title>
+    <meta name="description" content="Welcome to Rishik Y's developer portfolio. Explore projects, documentation, and contributions to open source software.">
+    <meta name="keywords" content="Rishik Y, Developer, Portfolio, Open Source, GSoC, Wayland, Projects">
     <meta name="author" content="Rishik Y">
     
     <!-- Open Graph meta tags for social media sharing -->
-    <meta property="og:title" content="GSoC 2025 - Wayshot Cross-Compositor Support">
-    <meta property="og:description" content="Complete documentation of my Google Summer of Code 2025 project making Wayshot work across all Wayland compositors.">
+    <meta property="og:title" content="Rishik Y - Developer Portfolio">
+    <meta property="og:description" content="Welcome to Rishik Y's developer portfolio. Explore projects, documentation, and contributions.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rishik-y.github.io">
-    <meta property="og:site_name" content="Rishik Y - GSoC 2025 Documentation">
+    <meta property="og:site_name" content="Rishik Y - Developer Portfolio">
     
     <!-- Twitter Card meta tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="GSoC 2025 - Wayshot Cross-Compositor Support">
-    <meta name="twitter:description" content="Complete documentation of my Google Summer of Code 2025 project making Wayshot work across all Wayland compositors.">
+    <meta name="twitter:title" content="Rishik Y - Developer Portfolio">
+    <meta name="twitter:description" content="Welcome to Rishik Y's developer portfolio. Explore projects, documentation, and contributions.">
     
-    <!-- Favicon and Apple Touch Icon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 2rem;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #718096;
+            margin-bottom: 2rem;
+        }
+        
+        .description {
+            font-size: 1rem;
+            color: #4a5568;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .project-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .project-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-desc {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: #f7fafc;
+            color: #4a5568;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .social-link:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Mobile menu button -->
-    <button class="mobile-menu-btn" id="mobileMenuBtn">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <!-- Sidebar Navigation -->
-    <nav class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <h2>GSoC 2025</h2>
-            <p>Wayshot Cross-Compositor Support</p>
-            <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle dark mode">
-                🌙
-            </button>
-        </div>
-        
-        <div class="sidebar-content">
-            <ul class="nav-menu">
-                <li><a href="#overview" class="nav-link active" data-section="overview">📖 Overview</a></li>
-                <li><a href="#end-changes" class="nav-link" data-section="end-changes">🚀 Final Changes</a></li>
-                <li><a href="#resources" class="nav-link" data-section="resources">🔗 Resources</a></li>
+    <div class="container">
+        <div class="hero">
+            <div class="avatar">👨‍💻</div>
+            <h1>Rishik Y</h1>
+            <p class="subtitle">Developer & Open Source Contributor</p>
+            <p class="description">
+                Welcome to my portfolio! I'm passionate about open source software development, 
+                particularly in Linux/Wayland ecosystems. Explore my projects and documentation below.
+            </p>
+            
+            <div class="projects">
+                <a href="/GSoC/" class="project-card">
+                    <span class="project-icon">🎓</span>
+                    <div class="project-title">GSoC 2025</div>
+                    <div class="project-desc">
+                        Complete documentation of my Google Summer of Code 2025 project: 
+                        Making Wayshot cross-compatible across all Wayland compositors.
+                    </div>
+                </a>
                 
-                <li class="nav-section">
-                    <span class="nav-section-title">💭 Thought Process</span>
-                    <ul class="nav-submenu">
-                        <li><a href="#thought-1" class="nav-link" data-section="thought-1">1. Introduction to Wayland Protocols</a></li>
-                        <li><a href="#thought-2" class="nav-link" data-section="thought-2">2. Understanding Wayshot</a></li>
-                        <li><a href="#thought-3" class="nav-link" data-section="thought-3">3. Setting Up Development Environment</a></li>
-                        <li><a href="#thought-4" class="nav-link" data-section="thought-4">4. Protocol Implementation Begin</a></li>
-                        <li><a href="#thought-5" class="nav-link" data-section="thought-5">5. First Success with Output Capture</a></li>
-                        <li><a href="#thought-6" class="nav-link" data-section="thought-6">6. Working on Area Capture</a></li>
-                        <li><a href="#thought-7" class="nav-link" data-section="thought-7">7. Adding Pixel Color Feature</a></li>
-                        <li><a href="#thought-8" class="nav-link" data-section="thought-8">8. Merging Backends</a></li>
-                        <li><a href="#thought-9" class="nav-link" data-section="thought-9">9. Testing and Refinement</a></li>
-                        <li><a href="#thought-10" class="nav-link" data-section="thought-10">10. Fixing COSMIC Compositor</a></li>
-                        <li><a href="#thought-11" class="nav-link" data-section="thought-11">11. Toplevel Application Capture</a></li>
-                        <li><a href="#thought-12" class="nav-link" data-section="thought-12">12. Final Integration</a></li>
-                        <li><a href="#thought-13" class="nav-link" data-section="thought-13">13. Documentation and Testing</a></li>
-                        <li><a href="#thought-14" class="nav-link" data-section="thought-14">14. Project Conclusion</a></li>
-                        <li><a href="#blooper" class="nav-link" data-section="blooper">🎭 Bloopers and Funky Glitches</a></li>
-                    </ul>
-                </li>
-                
-                <li class="nav-section">
-                    <span class="nav-section-title">📚 Reference Material</span>
-                    <ul class="nav-submenu">
-                        <li><a href="#what-is-linux" class="nav-link" data-section="what-is-linux">What is Linux & Wayland?</a></li>
-                        <li><a href="#what-is-wayland-compositor" class="nav-link" data-section="what-is-wayland-compositor">What is a Wayland Compositor?</a></li>
-                    </ul>
-                </li>
-            </ul>
+                <div class="project-card" style="opacity: 0.6; cursor: not-allowed;">
+                    <span class="project-icon">🚀</span>
+                    <div class="project-title">More Projects</div>
+                    <div class="project-desc">
+                        Additional projects and documentation will be added here in the future.
+                        Stay tuned for more content!
+                    </div>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://github.com/Rishik-Y" target="_blank" class="social-link">
+                    🐙 GitHub Profile
+                </a>
+            </div>
         </div>
-        
-        <div class="sidebar-footer">
-            <a href="https://github.com/Rishik-Y" target="_blank" class="github-link">
-                🐙 GitHub Profile
-            </a>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="main-content" id="mainContent">
-        <div class="content-wrapper">
-            <!-- Overview Section -->
-            <section id="overview" class="content-section active">
-                <div class="loading">Loading content...</div>
-            </section>
-
-            <!-- Other sections will be loaded dynamically -->
-            <section id="end-changes" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-            
-            <section id="resources" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-            
-            <!-- Thought process sections -->
-            <section id="thought-1" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-            
-            <section id="thought-2" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-            
-            <section id="thought-3" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-            
-            <section id="thought-4" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-            
-            <section id="thought-5" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-            
-            <section id="thought-6" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-            
-            <section id="thought-7" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-            
-            <section id="thought-8" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-            
-            <section id="thought-9" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-            
-            <section id="thought-10" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-            
-            <section id="thought-11" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-            
-            <section id="thought-12" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-            
-            <section id="thought-13" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-            
-            <section id="thought-14" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-            
-            <!-- Reference sections -->
-            <section id="what-is-linux" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-            
-            <section id="what-is-wayland-compositor" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-            
-            <section id="blooper" class="content-section">
-                <div class="loading">Loading content...</div>
-            </section>
-        </div>
-    </main>
-
-    <!-- Overlay for mobile -->
-    <div class="overlay" id="overlay"></div>
-
-    <script src="assets/js/main.js"></script>
+    </div>
 </body>
 </html>

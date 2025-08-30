@@ -173,28 +173,28 @@ class GSoCDocumentation {
             
             switch (sectionId) {
                 case 'overview':
-                    content = await this.loadMarkdownFile('GSoC/GSoC.md');
+                    content = await this.loadMarkdownFile('GSoC.md');
                     break;
                 case 'end-changes':
-                    content = await this.loadMarkdownFile('GSoC/End_Changes.md');
+                    content = await this.loadMarkdownFile('End_Changes.md');
                     break;
                 case 'resources':
-                    content = await this.loadMarkdownFile('GSoC/Resources.md');
+                    content = await this.loadMarkdownFile('Resources.md');
                     break;
                 case 'what-is-linux':
-                    content = await this.loadMarkdownFile('GSoC/Though_Process/What_is_linux.md');
+                    content = await this.loadMarkdownFile('Though_Process/What_is_linux.md');
                     break;
                 case 'what-is-wayland-compositor':
-                    content = await this.loadMarkdownFile('GSoC/Though_Process/What_is_wayland_compositor.md');
+                    content = await this.loadMarkdownFile('Though_Process/What_is_wayland_compositor.md');
                     break;
                 case 'blooper':
-                    content = await this.loadMarkdownFile('GSoC/Though_Process/Blooper.md');
+                    content = await this.loadMarkdownFile('Though_Process/Blooper.md');
                     break;
                 default:
                     // Handle thought process files
                     if (sectionId.startsWith('thought-')) {
                         const thoughtNumber = sectionId.split('-')[1];
-                        content = await this.loadMarkdownFile(`GSoC/Though_Process/Thought_Process_${thoughtNumber}.md`);
+                        content = await this.loadMarkdownFile(`Though_Process/Thought_Process_${thoughtNumber}.md`);
                     }
                     break;
             }
@@ -227,7 +227,7 @@ class GSoCDocumentation {
                 // If file not found, try alternative paths
                 if (response.status === 404 && filePath.includes('Though_Process/')) {
                     const altPath = filePath.replace('Though_Process/', '');
-                    const altResponse = await fetch(`GSoC/${altPath}`);
+                    const altResponse = await fetch(altPath);
                     if (altResponse.ok) {
                         return await altResponse.text();
                     }
@@ -260,9 +260,9 @@ class GSoCDocumentation {
             .replace(/`([^`]+)`/g, '<code>$1</code>')
             // Images ![alt](src) - fix relative paths
             .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, alt, src) => {
-                // If the src doesn't start with http or /, treat it as relative to GSoC/Though_Process/
-                if (!src.startsWith('http') && !src.startsWith('/') && !src.startsWith('GSoC/')) {
-                    src = 'GSoC/Though_Process/' + src;
+                // If the src doesn't start with http or /, treat it as relative to Though_Process/
+                if (!src.startsWith('http') && !src.startsWith('/') && !src.startsWith('Though_Process/')) {
+                    src = 'Though_Process/' + src;
                 }
                 return `<img src="${src}" alt="${alt}" />`;
             })
