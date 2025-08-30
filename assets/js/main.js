@@ -66,6 +66,8 @@ class GSoCDocumentation {
                 } else {
                     localStorage.setItem('darkMode', 'disabled');
                 }
+                // Update toggle icon
+                this.updateDarkModeToggle();
             });
         }
     }
@@ -86,6 +88,8 @@ class GSoCDocumentation {
         if (localStorage.getItem('darkMode') !== 'disabled') {
             document.body.classList.add('dark-mode');
         }
+        // Set the correct icon for the current mode
+        this.updateDarkModeToggle();
     }
     
     setupResponsive() {
@@ -93,6 +97,15 @@ class GSoCDocumentation {
         
         if (this.isMobile) {
             this.closeMobileMenu();
+        }
+    }
+    
+    updateDarkModeToggle() {
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        if (darkModeToggle) {
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            darkModeToggle.textContent = isDarkMode ? '🌙' : '☀️';
+            darkModeToggle.title = isDarkMode ? 'Switch to light mode' : 'Switch to dark mode';
         }
     }
     
@@ -245,6 +258,14 @@ class GSoCDocumentation {
             .replace(/\*(.*?)\*/g, '<em>$1</em>')
             // Code
             .replace(/`([^`]+)`/g, '<code>$1</code>')
+            // Images ![alt](src) - fix relative paths
+            .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, alt, src) => {
+                // If the src doesn't start with http or /, treat it as relative to GSoC/Though_Process/
+                if (!src.startsWith('http') && !src.startsWith('/') && !src.startsWith('GSoC/')) {
+                    src = 'GSoC/Though_Process/' + src;
+                }
+                return `<img src="${src}" alt="${alt}" />`;
+            })
             // Links [text](url)
             .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
             // Line breaks and paragraphs
