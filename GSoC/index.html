@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSoC 2025 - Wayshot Cross-Compositor Support | Rishik Y</title>
+    <meta name="description" content="Documentation for Google Summer of Code 2025 project: Making Wayshot cross-compatible across all Wayland compositors using ext-image-capture protocols.">
+    <meta name="keywords" content="GSoC 2025, Google Summer of Code, Wayland, Wayshot, ext-image-capture, wlroots, COSMIC, Waycrate">
+    <meta name="author" content="Rishik Y">
+    
+    <!-- Open Graph meta tags for social media sharing -->
+    <meta property="og:title" content="GSoC 2025 - Wayshot Cross-Compositor Support">
+    <meta property="og:description" content="Complete documentation of my Google Summer of Code 2025 project making Wayshot work across all Wayland compositors.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rishik-y.github.io/GSoC">
+    <meta property="og:site_name" content="Rishik Y - GSoC 2025 Documentation">
+    
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GSoC 2025 - Wayshot Cross-Compositor Support">
+    <meta name="twitter:description" content="Complete documentation of my Google Summer of Code 2025 project making Wayshot work across all Wayland compositors.">
+    
+    <!-- Favicon and Apple Touch Icon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile menu button -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>GSoC 2025</h2>
+            <p>Wayshot Cross-Compositor Support</p>
+            <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle dark mode">
+                🌙
+            </button>
+        </div>
+        
+        <div class="sidebar-content">
+            <ul class="nav-menu">
+                <li><a href="#overview" class="nav-link active" data-section="overview">📖 Overview</a></li>
+                <li><a href="#end-changes" class="nav-link" data-section="end-changes">🚀 Final Changes</a></li>
+                <li><a href="#resources" class="nav-link" data-section="resources">🔗 Resources</a></li>
+                
+                <li class="nav-section">
+                    <span class="nav-section-title">💭 Thought Process</span>
+                    <ul class="nav-submenu">
+                        <li><a href="#thought-1" class="nav-link" data-section="thought-1">1. Introduction to Wayland Protocols</a></li>
+                        <li><a href="#thought-2" class="nav-link" data-section="thought-2">2. Understanding Wayshot</a></li>
+                        <li><a href="#thought-3" class="nav-link" data-section="thought-3">3. Setting Up Development Environment</a></li>
+                        <li><a href="#thought-4" class="nav-link" data-section="thought-4">4. Protocol Implementation Begin</a></li>
+                        <li><a href="#thought-5" class="nav-link" data-section="thought-5">5. First Success with Output Capture</a></li>
+                        <li><a href="#thought-6" class="nav-link" data-section="thought-6">6. Working on Area Capture</a></li>
+                        <li><a href="#thought-7" class="nav-link" data-section="thought-7">7. Adding Pixel Color Feature</a></li>
+                        <li><a href="#thought-8" class="nav-link" data-section="thought-8">8. Merging Backends</a></li>
+                        <li><a href="#thought-9" class="nav-link" data-section="thought-9">9. Testing and Refinement</a></li>
+                        <li><a href="#thought-10" class="nav-link" data-section="thought-10">10. Fixing COSMIC Compositor</a></li>
+                        <li><a href="#thought-11" class="nav-link" data-section="thought-11">11. Toplevel Application Capture</a></li>
+                        <li><a href="#thought-12" class="nav-link" data-section="thought-12">12. Final Integration</a></li>
+                        <li><a href="#thought-13" class="nav-link" data-section="thought-13">13. Documentation and Testing</a></li>
+                        <li><a href="#thought-14" class="nav-link" data-section="thought-14">14. Project Conclusion</a></li>
+                        <li><a href="#blooper" class="nav-link" data-section="blooper">🎭 Bloopers and Funky Glitches</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-section">
+                    <span class="nav-section-title">📚 Reference Material</span>
+                    <ul class="nav-submenu">
+                        <li><a href="#what-is-linux" class="nav-link" data-section="what-is-linux">What is Linux & Wayland?</a></li>
+                        <li><a href="#what-is-wayland-compositor" class="nav-link" data-section="what-is-wayland-compositor">What is a Wayland Compositor?</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="sidebar-footer">
+            <a href="https://github.com/Rishik-Y" target="_blank" class="github-link">
+                🐙 GitHub Profile
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <div class="content-wrapper">
+            <!-- Overview Section -->
+            <section id="overview" class="content-section active">
+                <div class="loading">Loading content...</div>
+            </section>
+
+            <!-- Other sections will be loaded dynamically -->
+            <section id="end-changes" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+            
+            <section id="resources" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+            
+            <!-- Thought process sections -->
+            <section id="thought-1" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+            
+            <section id="thought-2" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+            
+            <section id="thought-3" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+            
+            <section id="thought-4" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+            
+            <section id="thought-5" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+            
+            <section id="thought-6" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+            
+            <section id="thought-7" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+            
+            <section id="thought-8" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+            
+            <section id="thought-9" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+            
+            <section id="thought-10" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+            
+            <section id="thought-11" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+            
+            <section id="thought-12" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+            
+            <section id="thought-13" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+            
+            <section id="thought-14" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+            
+            <!-- Reference sections -->
+            <section id="what-is-linux" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+            
+            <section id="what-is-wayland-compositor" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+            
+            <section id="blooper" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Overlay for mobile -->
+    <div class="overlay" id="overlay"></div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
