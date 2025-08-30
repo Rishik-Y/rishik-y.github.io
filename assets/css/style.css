@@ -640,6 +640,44 @@ body {
     opacity: 1;
 }
 
+/* Dark Mode Styles */
+body.dark-mode, :root.dark-mode {
+    --bg-primary: #18181b;
+    --bg-secondary: #23232a;
+    --bg-tertiary: #1e1e24;
+    --bg-sidebar: #111827;
+    --bg-sidebar-secondary: #1f2937;
+    --primary-color: #60a5fa;
+    --primary-dark: #2563eb;
+    --secondary-color: #94a3b8;
+    --accent-color: #fbbf24;
+    --success-color: #22d3ee;
+    --warning-color: #fbbf24;
+    --error-color: #f87171;
+    --text-primary: #f3f4f6;
+    --text-secondary: #cbd5e1;
+    --text-light: #64748b;
+    --text-sidebar: #f3f4f6;
+    --text-sidebar-secondary: #94a3b8;
+    --border-light: #334155;
+    --border-medium: #64748b;
+    --border-dark: #1e293b;
+}
+
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-sidebar);
+    margin-left: 8px;
+    transition: color 0.2s;
+}
+
+body.dark-mode .dark-mode-toggle {
+    color: var(--accent-color);
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .main-content {

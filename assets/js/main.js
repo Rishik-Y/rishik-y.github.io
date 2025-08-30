@@ -54,6 +54,20 @@ class GSoCDocumentation {
                 this.navigateToSection(e.state.section, false);
             }
         });
+
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        if (darkModeToggle) {
+            darkModeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                // Save preference
+                if (document.body.classList.contains('dark-mode')) {
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    localStorage.setItem('darkMode', 'disabled');
+                }
+            });
+        }
     }
     
     initializeHighlighting() {
@@ -69,6 +83,10 @@ class GSoCDocumentation {
         } else {
             // Set initial state
             history.replaceState({section: 'overview'}, '', '#overview');
+        }
+        // Restore dark mode preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
         }
     }
     
