@@ -247,8 +247,11 @@ class GSoCDocumentation {
     }
     
     simpleMarkdownToHTML(markdown) {
+        // Process tables first before other markdown processing
+        let html = this.parseMarkdownTables(markdown);
+        
         // Enhanced markdown conversion
-        let html = markdown
+        html = html
             // Headers
             .replace(/^### (.*$)/gm, '<h3>$1</h3>')
             .replace(/^## (.*$)/gm, '<h2>$1</h2>')
@@ -283,6 +286,105 @@ class GSoCDocumentation {
         }
         
         return html;
+    }
+    
+    parseMarkdownTables(text) {
+        // Split text into lines for table processing
+        const lines = text.split('\n');
+        const result = [];
+        let i = 0;
+        
+        while (i < lines.length) {
+            const line = lines[i].trim();
+            
+            // Check if this line looks like a table header
+            if (line.includes('|') && i + 1 < lines.length) {
+                const nextLine = lines[i + 1].trim();
+                
+                // Check if next line is a separator (contains dashes and pipes)
+                if (nextLine.match(/^\|?[\s\-\|:]+\|?$/)) {
+                    // Found a table! Process it
+                    const tableResult = this.processTable(lines, i);
+                    result.push(tableResult.html);
+                    i = tableResult.nextIndex;
+                    continue;
+                }
+            }
+            
+            // Not a table line, add as-is
+            result.push(lines[i]);
+            i++;
+        }
+        
+        return result.join('\n');
+    }
+    
+    processTable(lines, startIndex) {
+        const headerLine = lines[startIndex].trim();
+        let currentIndex = startIndex + 2; // Skip header and separator
+        
+        // Parse header
+        const headers = this.parseTableRow(headerLine);
+        
+        // Parse data rows
+        const rows = [];
+        while (currentIndex < lines.length) {
+            const line = lines[currentIndex].trim();
+            // End of table if line is empty, doesn't contain |, or looks like regular content
+            if (!line || !line.includes('|') || line === '</p><p>') {
+                break;
+            }
+            const rowData = this.parseTableRow(line);
+            // Only add non-empty rows with data
+            if (rowData.length > 0) {
+                rows.push(rowData);
+            }
+            currentIndex++;
+        }
+        
+        // Generate HTML table
+        let tableHtml = '<table>';
+        
+        // Header
+        if (headers.length > 0) {
+            tableHtml += '<thead><tr>';
+            headers.forEach(header => {
+                tableHtml += `<th>${header}</th>`;
+            });
+            tableHtml += '</tr></thead>';
+        }
+        
+        // Body
+        if (rows.length > 0) {
+            tableHtml += '<tbody>';
+            rows.forEach(row => {
+                tableHtml += '<tr>';
+                row.forEach(cell => {
+                    tableHtml += `<td>${cell}</td>`;
+                });
+                tableHtml += '</tr>';
+            });
+            tableHtml += '</tbody>';
+        }
+        
+        tableHtml += '</table>';
+        
+        return {
+            html: tableHtml,
+            nextIndex: currentIndex
+        };
+    }
+    
+    parseTableRow(line) {
+        // Remove leading/trailing pipes and split by pipe
+        const cells = line
+            .replace(/^\|/, '')
+            .replace(/\|$/, '')
+            .split('|')
+            .map(cell => cell.trim());
+        
+        // Filter out empty cells and return
+        return cells.filter(cell => cell.length > 0);
     }
     
     wrapContentWithHeader(content, sectionId) {
