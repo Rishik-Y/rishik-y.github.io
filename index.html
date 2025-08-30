@@ -29,7 +29,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
 </head>
 <body>
     <!-- Mobile menu button -->
@@ -72,6 +71,7 @@
                         <li><a href="#thought-12" class="nav-link" data-section="thought-12">12. Final Integration</a></li>
                         <li><a href="#thought-13" class="nav-link" data-section="thought-13">13. Documentation and Testing</a></li>
                         <li><a href="#thought-14" class="nav-link" data-section="thought-14">14. Project Conclusion</a></li>
+                        <li><a href="#blooper" class="nav-link" data-section="blooper">🎭 Bloopers and Funky Glitches</a></li>
                     </ul>
                 </li>
                 
@@ -97,88 +97,7 @@
         <div class="content-wrapper">
             <!-- Overview Section -->
             <section id="overview" class="content-section active">
-                <div class="section-header">
-                    <h1>Google Summer of Code 2025 with Waycrate</h1>
-                    <p class="section-subtitle">Making Wayshot Cross-Compatible Across All Wayland Compositors</p>
-                </div>
-                
-                <div class="content-body">
-                    <div class="intro-card">
-                        <h2>Project Overview</h2>
-                        <p>This website documents my Google Summer of Code 2025 project, where I worked on making Wayshot - a screenshot tool for Wayland compositors - cross-compatible across all Wayland-based compositors, not just wlroots-based ones.</p>
-                    </div>
-
-                    <div class="highlight-box">
-                        <h3>🎯 Project Goal</h3>
-                        <p>Transform Wayshot from a wlroots-only screenshot tool to a universal Wayland screenshot solution by implementing the new standardized protocols: <code>ext-image-capture-source-v1</code> and <code>ext-image-copy-capture-v1</code>.</p>
-                    </div>
-
-                    <div class="problem-solution">
-                        <div class="problem">
-                            <h3>❌ The Problem</h3>
-                            <p>Wayshot currently uses the <code>wlr-screencopy</code> protocol, which is non-standard and only works on wlroots-based compositors like Sway and River. This means it can't be used on compositors like:</p>
-                            <ul>
-                                <li>GNOME (Mutter)</li>
-                                <li>KDE (KWin)</li>
-                                <li>COSMIC</li>
-                                <li>Other non-wlroots compositors</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="solution">
-                            <h3>✅ The Solution</h3>
-                            <p>Implement support for the new official Wayland protocols that provide:</p>
-                            <ul>
-                                <li>Standardized method for display capture</li>
-                                <li>Top-level window capture capabilities</li>
-                                <li>Cross-compositor compatibility</li>
-                                <li>Future-proof architecture</li>
-                                <li>Backward compatibility with legacy systems</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <h4>🖥️ Full Output Capture</h4>
-                            <p>Capture entire monitors or screens with the new protocols</p>
-                        </div>
-                        
-                        <div class="feature-card">
-                            <h4>📱 Application Capture</h4>
-                            <p>Capture specific application windows using toplevel protocols</p>
-                        </div>
-                        
-                        <div class="feature-card">
-                            <h4>🎯 Area Selection</h4>
-                            <p>Select and capture custom rectangular regions</p>
-                        </div>
-                        
-                        <div class="feature-card">
-                            <h4>🎨 Pixel Color Grab</h4>
-                            <p>Utility to grab RGB values of individual pixels</p>
-                        </div>
-                        
-                        <div class="feature-card">
-                            <h4>🔄 Automatic Fallback</h4>
-                            <p>Seamlessly falls back to legacy protocols when needed</p>
-                        </div>
-                        
-                        <div class="feature-card">
-                            <h4>🔔 Desktop Notifications</h4>
-                            <p>Privacy-aware notifications for successful captures</p>
-                        </div>
-                    </div>
-
-                    <div class="journey-note">
-                        <h3>📝 Documentation Approach</h3>
-                        <p>I've written this documentation in a way that even newcomers to Linux and Wayland can understand. For experienced developers, please bear with the simplified explanations - they're intentional to make this accessible to everyone.</p>
-                    </div>
-
-                    <div class="navigation-hint">
-                        <p>Use the sidebar navigation to explore different sections of this documentation, including my detailed thought process, final changes, and reference materials.</p>
-                    </div>
-                </div>
+                <div class="loading">Loading content...</div>
             </section>
 
             <!-- Other sections will be loaded dynamically -->
@@ -255,14 +174,16 @@
             <section id="what-is-wayland-compositor" class="content-section">
                 <div class="loading">Loading content...</div>
             </section>
+            
+            <section id="blooper" class="content-section">
+                <div class="loading">Loading content...</div>
+            </section>
         </div>
     </main>
 
     <!-- Overlay for mobile -->
     <div class="overlay" id="overlay"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>

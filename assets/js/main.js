@@ -71,9 +71,7 @@ class GSoCDocumentation {
     }
     
     initializeHighlighting() {
-        if (typeof hljs !== 'undefined') {
-            hljs.highlightAll();
-        }
+        // Highlighting will be handled in simple markdown conversion
     }
     
     handleInitialLoad() {
@@ -84,8 +82,8 @@ class GSoCDocumentation {
             // Set initial state
             history.replaceState({section: 'overview'}, '', '#overview');
         }
-        // Restore dark mode preference
-        if (localStorage.getItem('darkMode') === 'enabled') {
+        // Set dark mode as default, only switch to light mode if explicitly disabled
+        if (localStorage.getItem('darkMode') !== 'disabled') {
             document.body.classList.add('dark-mode');
         }
     }
@@ -149,8 +147,8 @@ class GSoCDocumentation {
         const section = document.getElementById(sectionId);
         if (!section) return;
         
-        // If content is already loaded and not overview (which is static), skip
-        if (sectionId === 'overview' || this.contentCache.has(sectionId)) {
+        // If content is already loaded and not overview (which is now dynamic), skip
+        if (this.contentCache.has(sectionId)) {
             return;
         }
         
@@ -161,6 +159,9 @@ class GSoCDocumentation {
             let content = '';
             
             switch (sectionId) {
+                case 'overview':
+                    content = await this.loadMarkdownFile('GSoC/GSoC.md');
+                    break;
                 case 'end-changes':
                     content = await this.loadMarkdownFile('GSoC/End_Changes.md');
                     break;
@@ -172,6 +173,9 @@ class GSoCDocumentation {
                     break;
                 case 'what-is-wayland-compositor':
                     content = await this.loadMarkdownFile('GSoC/Though_Process/What_is_wayland_compositor.md');
+                    break;
+                case 'blooper':
+                    content = await this.loadMarkdownFile('GSoC/Though_Process/Blooper.md');
                     break;
                 default:
                     // Handle thought process files
@@ -190,12 +194,7 @@ class GSoCDocumentation {
                 // Cache the content
                 this.contentCache.set(sectionId, wrappedContent);
                 
-                // Re-highlight code blocks
-                if (typeof hljs !== 'undefined') {
-                    section.querySelectorAll('pre code').forEach(block => {
-                        hljs.highlightElement(block);
-                    });
-                }
+                // No need to re-highlight as we use simple markdown conversion
                 
                 // Process navigation links within content
                 this.processInternalLinks(section);
@@ -230,38 +229,44 @@ class GSoCDocumentation {
     }
     
     convertMarkdownToHTML(markdown) {
-        if (typeof marked === 'undefined') {
-            // Fallback if marked.js is not available
-            return this.simpleMarkdownToHTML(markdown);
-        }
-        
-        // Configure marked options
-        marked.setOptions({
-            breaks: true,
-            gfm: true,
-            headerIds: true,
-            mangle: false
-        });
-        
-        return marked.parse(markdown);
+        // Always use simple markdown conversion since external CDN is blocked
+        return this.simpleMarkdownToHTML(markdown);
     }
     
     simpleMarkdownToHTML(markdown) {
-        // Basic markdown conversion for fallback
-        return markdown
+        // Enhanced markdown conversion
+        let html = markdown
+            // Headers
             .replace(/^### (.*$)/gm, '<h3>$1</h3>')
             .replace(/^## (.*$)/gm, '<h2>$1</h2>')
             .replace(/^# (.*$)/gm, '<h1>$1</h1>')
-            .replace(/\*\*(.*)\*\*/g, '<strong>$1</strong>')
-            .replace(/\*(.*)\*/g, '<em>$1</em>')
+            // Bold and italic
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+            // Code
             .replace(/`([^`]+)`/g, '<code>$1</code>')
+            // Links [text](url)
+            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+            // Line breaks and paragraphs
             .replace(/\n\n/g, '</p><p>')
-            .replace(/^/, '<p>')
-            .replace(/$/, '</p>');
+            .replace(/\n/g, '<br>')
+            // Lists
+            .replace(/^\* (.+)$/gm, '<li>$1</li>')
+            .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
+            // Horizontal rules
+            .replace(/^---$/gm, '<hr>');
+            
+        // Wrap in paragraphs if not already wrapped
+        if (!html.startsWith('<')) {
+            html = '<p>' + html + '</p>';
+        }
+        
+        return html;
     }
     
     wrapContentWithHeader(content, sectionId) {
         const titles = {
+            'overview': 'Google Summer of Code 2025 with Waycrate',
             'end-changes': 'Final Project Changes',
             'resources': 'Resources & References',
             'what-is-linux': 'Understanding Linux & Wayland',
@@ -279,7 +284,8 @@ class GSoCDocumentation {
             'thought-11': 'Toplevel Application Capture',
             'thought-12': 'Final Integration',
             'thought-13': 'Documentation and Testing',
-            'thought-14': 'Project Conclusion'
+            'thought-14': 'Project Conclusion',
+            'blooper': 'Bloopers and Funky Glitches'
         };
         
         const title = titles[sectionId] || 'Documentation';
@@ -341,7 +347,8 @@ class GSoCDocumentation {
             'Thought_Process_11.md': 'thought-11',
             'Thought_Process_12.md': 'thought-12',
             'Thought_Process_13.md': 'thought-13',
-            'Thought_Process_14.md': 'thought-14'
+            'Thought_Process_14.md': 'thought-14',
+            'Blooper.md': 'blooper'
         };
         
         const fileName = filePath.split('/').pop();
