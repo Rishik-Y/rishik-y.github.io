@@ -253,8 +253,6 @@ class GSoCDocumentation {
         // Enhanced markdown conversion with comprehensive feature support
         html = html
             // Headers (process from most specific to least specific)
-            .replace(/^###### (.*$)/gm, '<h6>$1</h6>')
-            .replace(/^##### (.*$)/gm, '<h5>$1</h5>')
             .replace(/^#### (.*$)/gm, '<h4>$1</h4>')
             .replace(/^### (.*$)/gm, '<h3>$1</h3>')
             .replace(/^## (.*$)/gm, '<h2>$1</h2>')
