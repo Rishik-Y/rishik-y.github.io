@@ -7,7 +7,7 @@ What bugs I encountered,
 What I learned,
 What I new features can be added for the people next!
 
-So what is the project on about? \
+So what is the project on about? 
 In a very layman terms, it is making a existing screenshot tool making it cross compatible across all wayland based compositors from wlroots based compositors.
 
 Here, Wayshot is a screen capture client for Wayland compositors (which in this instance act as servers) that

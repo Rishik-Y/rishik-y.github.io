@@ -6,11 +6,11 @@ Now let me reiterate what i am trying to do.
 
 ##### What am i trying to do?
 
-As of now, Wayland doesn’t have a fully standardized method for display and top-level window capture. Most compositors rely on their own methods, or, in the case of wlroots-based compositors, use tools like `wlr-screencopy`. \
+As of now, Wayland doesn’t have a fully standardized method for display and top-level window capture. Most compositors rely on their own methods, or, in the case of wlroots-based compositors, use tools like `wlr-screencopy`. 
 While this works, it creates complications: developers often need to write compatibility layers or checks to ensure screen and window capture features work across different compositors. This has been a persistent hassle.
 
-But Finally as of late last year 2024 \
-Some new protocols were introduced that aim to address this fragmentation: \
+But Finally as of late last year 2024 
+Some new protocols were introduced that aim to address this fragmentation: 
 [Image Capture Source](https://wayland.app/protocols/ext-image-capture-source-v1) and
 [Image Copy Capture](https://wayland.app/protocols/ext-image-copy-capture-v1)
 
@@ -32,10 +32,10 @@ ext-image-copy-capture-v1: This protocol allows clients to ask the compositor to
 
 ##### "Sorry i am really confused.. What exactly are these? What do they really do? Why are they seperated into 2 protocols? Why not keep in just 1 protocol like wlr-screencopy?"
 
-I Know this is very confusing so lets just understand in simple terms: \
+I Know this is very confusing so lets just understand in simple terms: 
 we are running sway with a 2 monitor setup,
 
-You dont know what sway is? \
+You dont know what sway is? 
 [sway](https://github.com/swaywm/sway "sway") is an [i3](https://github.com/swaywm/sway "i3")-compatible tiling Wayland compositor.
 
 What is a Wayland compositor?

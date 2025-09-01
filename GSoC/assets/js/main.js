@@ -247,16 +247,26 @@ class GSoCDocumentation {
     }
     
     simpleMarkdownToHTML(markdown) {
-        // Enhanced markdown conversion
-        let html = markdown
-            // Headers
+        // Process tables first before other markdown processing
+        let html = this.parseMarkdownTables(markdown);
+        
+        // Enhanced markdown conversion with comprehensive feature support
+        html = html
+            // Headers (process from most specific to least specific)
+            .replace(/^#### (.*$)/gm, '<h4>$1</h4>')
             .replace(/^### (.*$)/gm, '<h3>$1</h3>')
             .replace(/^## (.*$)/gm, '<h2>$1</h2>')
             .replace(/^# (.*$)/gm, '<h1>$1</h1>')
-            // Bold and italic
-            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-            .replace(/\*(.*?)\*/g, '<em>$1</em>')
-            // Code
+            // Code blocks (process before inline code)
+            .replace(/```([^`]*?)```/gs, '<pre><code>$1</code></pre>')
+            // Blockquotes
+            .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
+            // Bold, italic, and strikethrough (process in order to avoid conflicts)
+            .replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>')  // Bold + italic
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')               // Bold
+            .replace(/\*(.*?)\*/g, '<em>$1</em>')                           // Italic
+            .replace(/~~(.*?)~~/g, '<del>$1</del>')                         // Strikethrough
+            // Inline code (after other formatting)
             .replace(/`([^`]+)`/g, '<code>$1</code>')
             // Images ![alt](src) - fix relative paths
             .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, alt, src) => {
@@ -268,12 +278,18 @@ class GSoCDocumentation {
             })
             // Links [text](url)
             .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+            // Numbered lists
+            .replace(/^\d+\. (.+)$/gm, '<li>$1</li>')
+            // Unordered lists
+            .replace(/^[\*\-\+] (.+)$/gm, '<li>$1</li>')
+            // Wrap consecutive list items in appropriate list tags
+            .replace(/(<li>.*<\/li>(\n<li>.*<\/li>)*)/gs, (match) => {
+                // Check if this is part of the original numbered list context
+                return `<ul>${match}</ul>`;
+            })
             // Line breaks and paragraphs
             .replace(/\n\n/g, '</p><p>')
             .replace(/\n/g, '<br>')
-            // Lists
-            .replace(/^\* (.+)$/gm, '<li>$1</li>')
-            .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
             // Horizontal rules
             .replace(/^---$/gm, '<hr>');
             
@@ -283,6 +299,105 @@ class GSoCDocumentation {
         }
         
         return html;
+    }
+    
+    parseMarkdownTables(text) {
+        // Split text into lines for table processing
+        const lines = text.split('\n');
+        const result = [];
+        let i = 0;
+        
+        while (i < lines.length) {
+            const line = lines[i].trim();
+            
+            // Check if this line looks like a table header
+            if (line.includes('|') && i + 1 < lines.length) {
+                const nextLine = lines[i + 1].trim();
+                
+                // Check if next line is a separator (contains dashes and pipes)
+                if (nextLine.match(/^\|?[\s\-\|:]+\|?$/)) {
+                    // Found a table! Process it
+                    const tableResult = this.processTable(lines, i);
+                    result.push(tableResult.html);
+                    i = tableResult.nextIndex;
+                    continue;
+                }
+            }
+            
+            // Not a table line, add as-is
+            result.push(lines[i]);
+            i++;
+        }
+        
+        return result.join('\n');
+    }
+    
+    processTable(lines, startIndex) {
+        const headerLine = lines[startIndex].trim();
+        let currentIndex = startIndex + 2; // Skip header and separator
+        
+        // Parse header
+        const headers = this.parseTableRow(headerLine);
+        
+        // Parse data rows
+        const rows = [];
+        while (currentIndex < lines.length) {
+            const line = lines[currentIndex].trim();
+            // End of table if line is empty, doesn't contain |, or looks like regular content
+            if (!line || !line.includes('|') || line === '</p><p>') {
+                break;
+            }
+            const rowData = this.parseTableRow(line);
+            // Only add non-empty rows with data
+            if (rowData.length > 0) {
+                rows.push(rowData);
+            }
+            currentIndex++;
+        }
+        
+        // Generate HTML table
+        let tableHtml = '<table>';
+        
+        // Header
+        if (headers.length > 0) {
+            tableHtml += '<thead><tr>';
+            headers.forEach(header => {
+                tableHtml += `<th>${header}</th>`;
+            });
+            tableHtml += '</tr></thead>';
+        }
+        
+        // Body
+        if (rows.length > 0) {
+            tableHtml += '<tbody>';
+            rows.forEach(row => {
+                tableHtml += '<tr>';
+                row.forEach(cell => {
+                    tableHtml += `<td>${cell}</td>`;
+                });
+                tableHtml += '</tr>';
+            });
+            tableHtml += '</tbody>';
+        }
+        
+        tableHtml += '</table>';
+        
+        return {
+            html: tableHtml,
+            nextIndex: currentIndex
+        };
+    }
+    
+    parseTableRow(line) {
+        // Remove leading/trailing pipes and split by pipe
+        const cells = line
+            .replace(/^\|/, '')
+            .replace(/\|$/, '')
+            .split('|')
+            .map(cell => cell.trim());
+        
+        // Filter out empty cells and return
+        return cells.filter(cell => cell.length > 0);
     }
     
     wrapContentWithHeader(content, sectionId) {
