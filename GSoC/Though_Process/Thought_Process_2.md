@@ -1,10 +1,10 @@
-#####  Now Let's Talk About Wayshot
+##  Now Let's Talk About Wayshot
 
 So far, we’ve covered the *why* — the fragmentation of screen capture protocols on Wayland, and how the new `ext-image-capture-source-v1` and `ext-image-copy-capture-v1` aim to solve that.
 
 Now it’s time to talk about the *how* — and the tool I’m working with: **[Wayshot](https://github.com/waycrate/wayshot)**.
 
-##### What is Wayshot? 📸
+#### What is Wayshot? 📸
 
 Wayshot is a native, blazing-fast 🚀🚀🚀 screenshot tool for wlroots based compositors such as sway and river written in Rust.<br>
 It uses the `wlr-screencopy` protocol under the hood to capture screenshots.
@@ -13,7 +13,7 @@ It is *`grim` alternative — but written in Rust.*
 
 It's lightweight and CLI-friendly, perfect for quick screenshots on wlroots.
 
-##### What am I adding to Wayshot?
+### What am I adding to Wayshot?
 
 Currently, Wayshot only supports the wlroots-specific `wlr-screencopy` protocol. That works great — if you're on a wlroots compositor.
 But the moment you want to support KDE, GNOME, or any future-compliant compositor that uses the new official Wayland protocols, you're out of luck.
@@ -27,7 +27,7 @@ In simpler terms:
 - Allow capturing from those sources using the *official* protocol.
 - Keep the old `wlr-screencopy` backend as a fallback for older compositors.
 
-##### Why This is needed?
+#### Why This is needed?
 
 - It makes Wayshot **future-proof**.
 - It improves **compatibility** across all major compositors (not just wlroots).

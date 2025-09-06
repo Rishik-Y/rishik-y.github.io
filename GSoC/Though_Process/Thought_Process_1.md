@@ -4,7 +4,7 @@ as in Relecting back on my thought process and writing it here.
 
 Now let me reiterate what i am trying to do.
 
-##### What am i trying to do?
+### What am i trying to do?
 
 As of now, Wayland doesn’t have a fully standardized method for display and top-level window capture. Most compositors rely on their own methods, or, in the case of wlroots-based compositors, use tools like `wlr-screencopy`. \
 While this works, it creates complications: developers often need to write compatibility layers or checks to ensure screen and window capture features work across different compositors. This has been a persistent hassle.
@@ -16,13 +16,13 @@ Some new protocols were introduced that aim to address this fragmentation: \
 
 So My Primary Goal is to introduce a new backend to Wayshot, Adopting the official protocol and turn the wlr backend into a legacy codebase for backwards compatibility.
 
-##### What is the difference between the current wlr-screencopy and these new sets of protocols you ask?
+### What is the difference between the current wlr-screencopy and these new sets of protocols you ask?
 
 `wlr-screencopy` is a protocol originally developed as part of the wlroots ecosystem. It allows clients to request frames (images) from the screen. It works well for wlroots-based compositors like Sway or River, but its usage is limited outside of that scope.
 So non-wlroots compositor like GNOME’s Mutter or KDE’s KWin often requires its own different protocol or extension to achieve the same results—if it allows screen capturing at all.
 So as i stated before, This leads to a fragmentation problem.
 
-##### Now what does the new protocols do different?
+#### Now what does the new protocols do different?
 
 Wayland has introduced two more universal and formalized protocols:
 
@@ -30,7 +30,7 @@ ext-image-capture-source-v1: This protocol serves as an intermediary between cap
 
 ext-image-copy-capture-v1: This protocol allows clients to ask the compositor to capture image sources such as outputs and toplevels into user submitted buffers.
 
-##### "Sorry i am really confused.. What exactly are these? What do they really do? Why are they seperated into 2 protocols? Why not keep in just 1 protocol like wlr-screencopy?"
+#### "Sorry i am really confused.. What exactly are these? What do they really do? Why are they seperated into 2 protocols? Why not keep in just 1 protocol like wlr-screencopy?"
 
 I Know this is very confusing so lets just understand in simple terms: \
 we are running sway with a 2 monitor setup,
@@ -83,7 +83,7 @@ But from what i understood, wlr-screencopy being in one protocol, may not captur
 
 This is the reason why the new protocols were not kept like wlr-screencopy.
 
-##### "Sorry Everything went over my head 😵‍💫"
+### "Sorry Everything went over my head 😵‍💫"
 
 Look, these protocols are aim to be adopted across multiple compositors, including GNOME, KDE, and wlroots-based ones. If widely adopted, this can eliminate the need for each app to implement multiple capture backends or rely on compositor-specific hacks.
 

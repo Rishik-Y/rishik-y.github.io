@@ -7,11 +7,10 @@ What bugs I encountered,
 What I learned,
 What I new features can be added for the people next!
 
-So what is the project on about? \
-In a very layman terms, it is making a existing screenshot tool making it cross compatible across all wayland based compositors from wlroots based compositors.
+So what is the project on about?
+In a very layman terms, it is simply Extending the existing screenshot tool compatibility, from only wlroots-based compositors to all Wayland compositors.
 
-Here, Wayshot is a screen capture client for Wayland compositors (which in this instance act as servers) that
-implement the wlr-screencopy protocol (which at this point is mostly compositors based on the wlroots library like sway , river, etc).
+Here, Wayshot is a screen capture client for Wayland compositors (which in this instance act as servers) that implement the wlr-screencopy protocol (which at this point is mostly compositors based on the wlroots library like sway , river, etc).
 
 Right now,
 Wayshot currently uses wlr-screencopy protocol which is non-standard. 
