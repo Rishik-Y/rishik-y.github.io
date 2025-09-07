@@ -291,7 +291,7 @@ class GSoCDocumentation {
             .replace(/\n\n/g, '</p><p>')
             .replace(/\n/g, '<br>')
             // Horizontal rules
-            .replace(/^---$/gm, '<hr>');
+            .replace(/^-{3,}$/gm, '<hr>');
             
         // Wrap in paragraphs if not already wrapped
         if (!html.startsWith('<')) {
