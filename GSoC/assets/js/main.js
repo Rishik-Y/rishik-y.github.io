@@ -181,6 +181,9 @@ class GSoCDocumentation {
                 case 'resources':
                     content = await this.loadMarkdownFile('Resources.md');
                     break;
+                case 'prerequisite-knowledge':
+                    content = await this.loadMarkdownFile('Prerequisite_Knowledge.md');
+                    break;
                 case 'what-is-linux':
                     content = await this.loadMarkdownFile('Though_Process/What_is_linux.md');
                     break;
@@ -407,6 +410,7 @@ class GSoCDocumentation {
             'overview': 'Google Summer of Code 2025 with Waycrate',
             'end-changes': 'Final Project Changes',
             'resources': 'Resources & References',
+            'prerequisite-knowledge': 'Prerequisites & Knowledge',
             'what-is-linux': 'Understanding Linux & Wayland',
             'what-is-wayland-compositor': 'What is a Wayland Compositor?',
             'thought-1': 'Introduction to Wayland Protocols',
