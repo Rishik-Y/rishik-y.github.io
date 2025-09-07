@@ -287,11 +287,13 @@ class GSoCDocumentation {
                 // Check if this is part of the original numbered list context
                 return `<ul>${match}</ul>`;
             })
+            // Horizontal rules (process before line breaks and paragraphs)
+            .replace(/^---$/gm, '<hr>')
             // Line breaks and paragraphs
             .replace(/\n\n/g, '</p><p>')
             .replace(/\n/g, '<br>')
-            // Horizontal rules
-            .replace(/^---$/gm, '<hr>');
+            // Clean up paragraph-wrapped horizontal rules (invalid HTML)
+            .replace(/<p><hr><\/p>/g, '<hr>');
             
         // Wrap in paragraphs if not already wrapped
         if (!html.startsWith('<')) {
