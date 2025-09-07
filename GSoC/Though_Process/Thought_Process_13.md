@@ -36,5 +36,5 @@ It was a weird combination of dependencies needed just to make it work on COSMIC
 
 So, Wayshot is now back to using `wlr_layer_shell` for area capture, invalidating my work from `Thought_Process_7.md` 🥲.
 
-\<- Back: [Back](Thought_Process_12.md)\<br\>
-Forward: [Next](Thought_Process_14.md) -\>
+<- Back: [Back](Thought_Process_12.md)<br>
+Forward: [Next](Thought_Process_14.md) ->

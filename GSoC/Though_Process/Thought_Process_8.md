@@ -29,5 +29,5 @@ This significantly reduced the amount of redundant code. I was also able to spli
 
 While I was deep in the Wayshot codebase doing this merge, I also took the opportunity to bring the new `ext` method closer to feature parity with the `wlr` method. I added support for more of the existing output options, such as piping the screenshot data directly to the **clipboard** or to `stdout`.
 
-\<- Back: [Back](Thought_Process_7.md)\<br\>
-Forward: [Next](Thought_Process_9.md) -\>
+<- Back: [Back](Thought_Process_7.md)<br>
+Forward: [Next](Thought_Process_9.md) ->

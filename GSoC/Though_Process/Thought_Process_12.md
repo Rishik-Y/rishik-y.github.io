@@ -26,5 +26,5 @@ I also took another look at the fallback mechanism between the two capture proto
 
 Finally, I made a small but useful change to the notifications. They are now more descriptive about the *type* of capture that was taken. For example, if a user isn't capturing a full output or a specific app, the notification will now explicitly say something like **"Type: Pixel Color grab"** or **"Type: Area Cropping"**. This is much clearer and more informative for the user.
 
-\<- Back: [Back](Thought_Process_11.md)\<br\>
-Forward: [Next](Thought_Process_13.md) -\>
+<- Back: [Back](Thought_Process_11.md)<br>
+Forward: [Next](Thought_Process_13.md) ->

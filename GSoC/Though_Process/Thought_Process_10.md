@@ -81,5 +81,5 @@ Image taken on COSMIC:
 
 The lesson learned: **COSMIC, still being in alpha, has its quirks.** This was a big one that I discovered as a byproduct of this project. With the fix in place, Wayshot was finally running smoothly on my daily driver.
 
-\<- Back: [Back](Thought_Process_9.md)\<br\>
-Forward: [Next](Thought_Process_11.md) -\>
+<- Back: [Back](Thought_Process_9.md)<br>
+Forward: [Next](Thought_Process_11.md) ->

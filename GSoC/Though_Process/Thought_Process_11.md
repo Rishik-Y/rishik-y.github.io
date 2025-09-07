@@ -37,5 +37,5 @@ Finally, I implemented all the remaining features to bring this new capture mode
 
 I also added a notification to inform the user which application was captured. This is an important privacy feature to let a user know if a specific app was screenshotted, preventing unannounced captures.
 
-\<- Back: [Back](Thought_Process_10.md)\<br\>
-Forward: [Next](Thought_Process_12.md) -\>
+<- Back: [Back](Thought_Process_10.md)<br>
+Forward: [Next](Thought_Process_12.md) ->
