@@ -35,5 +35,5 @@ In simpler terms:
 
 <div style="display: flex; justify-content: space-between;">
   <a href="Thought_Process_1.md">&lt;- Back</a>
-  <a href="Thought_Process_3.md">Forward: [Next] -&gt;</a>
+  <a href="Thought_Process_3.md">Next -&gt;</a>
 </div>

@@ -39,5 +39,5 @@ I also added a notification to inform the user which application was captured. T
 
 <div style="display: flex; justify-content: space-between;">
   <a href="Thought_Process_10.md">&lt;- Back</a>
-  <a href="Thought_Process_12.md">Forward: [Next] -&gt;</a>
+  <a href="Thought_Process_12.md">Next -&gt;</a>
 </div>

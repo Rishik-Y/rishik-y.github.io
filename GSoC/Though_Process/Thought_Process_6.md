@@ -49,5 +49,5 @@ I assumed this was a separate, deeper bug in either my code's interaction with C
 
 <div style="display: flex; justify-content: space-between;">
   <a href="Thought_Process_5.md">&lt;- Back</a>
-  <a href="Thought_Process_7.md">Forward: [Next] -&gt;</a>
+  <a href="Thought_Process_7.md">Next -&gt;</a>
 </div>

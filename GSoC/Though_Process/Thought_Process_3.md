@@ -72,5 +72,5 @@ Now forward to digging into actual protocol-level work now that the environment 
 
 <div style="display: flex; justify-content: space-between;">
   <a href="Thought_Process_2.md">&lt;- Back</a>
-  <a href="Thought_Process_4.md">Forward: [Next] -&gt;</a>
+  <a href="Thought_Process_4.md">Next -&gt;</a>
 </div>

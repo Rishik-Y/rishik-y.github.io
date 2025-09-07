@@ -30,5 +30,5 @@ After giving it a serious amount of time and not making clear progress - largely
 
 <div style="display: flex; justify-content: space-between;">
   <a href="Thought_Process_8.md">&lt;- Back</a>
-  <a href="Thought_Process_10.md">Forward: [Next] -&gt;</a>
+  <a href="Thought_Process_10.md">Next -&gt;</a>
 </div>

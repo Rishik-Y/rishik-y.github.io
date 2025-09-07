@@ -36,5 +36,5 @@ I was still finding the `DynamicImage` conversion logic within `libwayshot` a bi
 
 <div style="display: flex; justify-content: space-between;">
   <a href="Thought_Process_6.md">&lt;- Back</a>
-  <a href="Thought_Process_8.md">Forward: [Next] -&gt;</a>
+  <a href="Thought_Process_8.md">Next -&gt;</a>
 </div>

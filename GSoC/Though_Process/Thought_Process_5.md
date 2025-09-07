@@ -39,5 +39,5 @@ The image below is one of the very first captures I took using the new `ext_imag
 
 <div style="display: flex; justify-content: space-between;">
   <a href="Thought_Process_4.md">&lt;- Back</a>
-  <a href="Thought_Process_6.md">Forward: [Next] -&gt;</a>
+  <a href="Thought_Process_6.md">Next -&gt;</a>
 </div>

@@ -27,5 +27,5 @@ Finally, I made a small but useful change to the notifications. They are now mor
 
 <div style="display: flex; justify-content: space-between;">
   <a href="Thought_Process_11.md">&lt;- Back</a>
-  <a href="Thought_Process_13.md">Forward: [Next] -&gt;</a>
+  <a href="Thought_Process_13.md">Next -&gt;</a>
 </div>

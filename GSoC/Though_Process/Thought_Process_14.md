@@ -10,11 +10,11 @@ However, since this experimental work is not included in my final Pull Request f
 
 Alas, this brings my development journey to a close. I'm happy to report that all of the original proposal goals were successfully accomplished:
 
-- [x] **Introducing `Ext_*` protocols to Wayshot:** Check ✔️
-- [x] **Implementing Top-level window capture:** Check ✔️
-- [x] **Turning the `wlr` backend into a legacy codebase:** Check ✔️
-- [x] **Adding notifications for Output/App-ID:** Check ✔️
-- [x] **Adding additional features along the way:** Check ✔️
+- **Introducing `Ext_*` protocols to Wayshot:** Check ✔️
+- **Implementing Top-level window capture:** Check ✔️
+- **Turning the `wlr` backend into a legacy codebase:** Check ✔️
+- **Adding notifications for Output/App-ID:** Check ✔️
+- **Adding additional features along the way:** Check ✔️
 
 -----
 
@@ -26,7 +26,6 @@ You can now see the final changes I made [here](../End_Changes.md)<br>
 or<br>
 You can wish to view some of my interesting Bugs [here](Blooper.md)
 
-<div style="display: flex; justify-content: space-between;">
+<div style="display: flex; justify-content: center;">
   <a href="Thought_Process_13.md">&lt;- Back</a>
-  <span></span>
 </div>

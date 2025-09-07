@@ -38,5 +38,5 @@ So, Wayshot is now back to using `wlr_layer_shell` for area capture, invalidatin
 
 <div style="display: flex; justify-content: space-between;">
   <a href="Thought_Process_12.md">&lt;- Back</a>
-  <a href="Thought_Process_14.md">Forward: [Next] -&gt;</a>
+  <a href="Thought_Process_14.md">Next -&gt;</a>
 </div>

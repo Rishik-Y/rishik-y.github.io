@@ -45,5 +45,5 @@ Even though it’s not part of Wayshot directly, this little detour helped me:
 
 <div style="display: flex; justify-content: space-between;">
   <a href="Thought_Process_3.md">&lt;- Back</a>
-  <a href="Thought_Process_5.md">Forward: [Next] -&gt;</a>
+  <a href="Thought_Process_5.md">Next -&gt;</a>
 </div>

@@ -83,5 +83,5 @@ The lesson learned: **COSMIC, still being in alpha, has its quirks.** This was a
 
 <div style="display: flex; justify-content: space-between;">
   <a href="Thought_Process_9.md">&lt;- Back</a>
-  <a href="Thought_Process_11.md">Forward: [Next] -&gt;</a>
+  <a href="Thought_Process_11.md">Next -&gt;</a>
 </div>

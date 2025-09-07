@@ -91,5 +91,5 @@ In other words: one capture API to rule them all.
 
 <div style="display: flex; justify-content: space-between;">
   <a href="../GSoC.md">&lt;- Back [GSOC Homepage]</a>
-  <a href="Thought_Process_2.md">Forward: [Next] -&gt;</a>
+  <a href="Thought_Process_2.md">Next -&gt;</a>
 </div>

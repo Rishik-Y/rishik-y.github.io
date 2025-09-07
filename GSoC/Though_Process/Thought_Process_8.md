@@ -31,5 +31,5 @@ While I was deep in the Wayshot codebase doing this merge, I also took the oppor
 
 <div style="display: flex; justify-content: space-between;">
   <a href="Thought_Process_7.md">&lt;- Back</a>
-  <a href="Thought_Process_9.md">Forward: [Next] -&gt;</a>
+  <a href="Thought_Process_9.md">Next -&gt;</a>
 </div>
