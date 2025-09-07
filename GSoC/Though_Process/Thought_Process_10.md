@@ -2,7 +2,7 @@
 
 At this point, I had come to a halt in my progress. I felt I still lacked the knowledge to properly tackle the streaming usecase, and I was also stuck on how to proceed with capturing application-specific windows.
 
------
+---
 
 ### The Next Step: `ext_foreign_toplevel_list_v1`
 
@@ -15,7 +15,7 @@ Before moving on, I'll explain a bit more about how smartly it works. The protoc
 - For example, if you have a file explorer and a terminal open, both will be shown as distinct capture sources.
 - But let's say you have Firefox open with three tabs. It will show one Firefox window as a capture source. Now, what if you tear off one of those tabs into its own separate window? The PID of Firefox hasn't changed, but you now have two distinct windows. `ext_foreign_toplevel_list_v1` is smart enough to see this and will now offer **both** Firefox windows as separate capture sources.
 
------
+---
 
 ### Why I Couldn't Proceed
 
@@ -23,7 +23,7 @@ The reason I hadn't talked about this protocol yet is simple: I couldn't test it
 
 I went back to the simple info-gathering client I wrote in `Thought_Process_4.md` and ran it on my `sway-git` environment. The output confirmed that `sway-git` still didn't have support for `ext_foreign_toplevel_list_v1`. I was blocked.
 
------
+---
 
 ### A Lucky Discovery and a New Plan
 
@@ -33,7 +33,7 @@ This discovery completely changed my direction. I realized that fixing the bugs 
 
 My plan had refocused: get Wayshot working perfectly in COSMIC.
 
------
+---
 
 With my new goal set on making Wayshot work in COSMIC, I started debugging. I knew the compositor had all the necessary protocols, but for some unknown reason, captures just refused to work.
 
@@ -43,7 +43,7 @@ I spent countless hours on it, double-checking if I had accidentally changed som
 
 In a moment of coincidence, a Waycrate member, Gigas007, mentioned on an issue that some formats were missing. I immediately added them, hoping for an easy fix, but... the output didn't change. The error was still related to the format.
 
------
+---
 
 ### Gathering More Data
 
@@ -54,7 +54,7 @@ Not understanding the root cause, I modified the code to directly print the form
 
 The code was correctly matching with `Argb8888` on COSMIC, which should have worked. Yet, it failed every time. On `sway-git`, it matched with `Xrgb8888` and worked perfectly. Why would a correct match fail only on COSMIC?
 
------
+---
 
 ### A Quick Detour: Notifications
 
@@ -62,7 +62,7 @@ While stuck on this frustrating bug, I was getting increasingly worried about no
 
 I was able to finish this quickly by adapting **Decode's code**. His version showed a simple "Passed" or "Failed" message. I modified it to be more descriptive, so it would notify the user exactly which output was captured (e.g., "Screenshot of eDP-1 taken").
 
------
+---
 
 ### The Breakthrough: Trial and Error
 

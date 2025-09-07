@@ -2,7 +2,7 @@
 
 Now that Wayshot was working reliably on COSMIC, the path was finally clear to start working on **toplevel capture** - in other words, application-specific screenshots.
 
------
+---
 
 ### Implementation and a Sway Update
 
@@ -12,7 +12,7 @@ At the same time, there was a great development in the wlroots world. While my `
 
 I tested the new feature on the updated stable Sway, and thankfully, everything worked perfectly there as well. With that, toplevel capture was successfully implemented.
 
------
+---
 
 ### Toplevel Capture in Action
 
@@ -29,7 +29,7 @@ There are a couple of unique features that make this capture method very powerfu
 - An application can be captured even if it's on a different virtual desktop (e.g., you are on Workspace 1, and the app is on Workspace 2).
 - It captures the *entire* application window, even if it's partially dragged beyond the borders of the screen.
 
------
+---
 
 ### Final Polish
 

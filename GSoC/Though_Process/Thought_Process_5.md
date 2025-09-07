@@ -17,13 +17,13 @@ This "skunkworks" approach meant starting almost entirely from scratch within th
 > If something broke, I'd know it was my new code and not an unforeseen interaction with the older, stable `wlr` backend. 
 > The primary goal was a working proof-of-concept, not clean code—that would come later.
 
------
+---
 
 ### Standing on the Shoulders of Giants
 
 I want to give a huge credit to **Decode's code**. His implementation served as an invaluable reference and guide for my initial work. Navigating the new protocols would have been significantly slower without being able to study and learn from his approach. Thank you\!!
 
------
+---
 
 ### The First Milestone
 

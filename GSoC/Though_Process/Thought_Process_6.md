@@ -6,7 +6,7 @@ Before diving into the new logic, I took a moment to do some important housekeep
 
 
 
------
+---
 
 ### Hitting a Wall with `wlr-layer-shell`
 
@@ -21,7 +21,7 @@ To make sure I wasn't going crazy, I tried running the *original* `wlr` area cap
 
 So the problem wasn't just my code. I was stuck. I couldn't test my new feature on stable Sway (because it doesn't have the `ext_image_*` protocols), and the protocol I was using for the overlay seemed to be broken on the newer `sway-git`.
 
------
+---
 
 ### The Solution: Switching to `xdg-shell`
 

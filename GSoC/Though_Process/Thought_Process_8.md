@@ -4,7 +4,7 @@ After adding the smaller features, it was time for a major change. I focused on 
 
 This was one of the biggest hurdles so far. I quickly learned that any minor mistake I made during the merge would result in countless hours of debugging to find the cause.
 
------
+---
 
 ### Building a Fallback System
 
@@ -15,7 +15,7 @@ My main focus here was on **backwards compatibility**. I wanted Wayshot to be sm
 
 To properly test this new fallback system, I added a temporary boolean variable to the code. This allowed me to easily force one protocol or the other during my tests, ensuring both paths and the transition between them worked correctly.
 
------
+---
 
 ### A Successful Merge
 
@@ -23,7 +23,7 @@ Thankfully, after many trial and error sessions, I successfully merged a large p
 
 This significantly reduced the amount of redundant code. I was also able to split and merge some of the existing structs, which increased the overall efficiency of the code, especially when it came to handling the backwards compatibility logic.
 
------
+---
 
 ### Reaching Feature Parity
 

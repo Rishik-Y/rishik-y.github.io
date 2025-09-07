@@ -2,7 +2,7 @@
 
 With all the major capture features implemented and working, I turned my attention to the final integration steps. The main goals were to completely merge the saving mechanisms of the `wlr` and `ext` methods and to make the fallback logic more robust.
 
------
+---
 
 ### Unifying the Image Saving Process
 
@@ -13,13 +13,13 @@ Up until now, the two backends handled saving images very differently:
 
 To unify this, I refactored the `ext` method's functions to work with `DynamicImage`, the same versatile image object used by the `wlr` method. Once that was done, I was able to remove my old, simple PNG saver entirely. Now, the `ext` backend uses the existing, powerful saving functions from the `wlr` backend, and both methods share the exact same code for saving files to any supported format.
 
------
+---
 
 ### A More Robust Fallback
 
 I also took another look at the fallback mechanism between the two capture protocols. Instead of having two completely separate functions that created two distinct pathways, I modified the code to use a **single, unified function**. This function is now smart enough to swap internally between the `ext` and `wlr` capture methods as needed, which makes the code much cleaner and easier to maintain.
 
------
+---
 
 ### More Descriptive Notifications
 

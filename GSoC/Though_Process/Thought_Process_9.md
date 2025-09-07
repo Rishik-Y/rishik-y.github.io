@@ -2,7 +2,7 @@
 
 By this point, I had nearly completed the basic tasks that were needed for the new backend. So, I started focusing on a separate, more advanced task: enabling the **streaming usecase**.
 
------
+---
 
 ### The Bottleneck in `libwayshot`
 
@@ -12,7 +12,7 @@ Each time a frame needs to be captured, the necessary resources are initialized,
 
 This is perfectly fine for taking a single screenshot. However, this becomes a major issue when focusing on a streaming usecase. For `xdg-portals` or any other program using the `libwayshot` library for screen recording, this constant setup and teardown for every single frame is a huge performance bottleneck.
 
------
+---
 
 ### Simulating a Stream
 
@@ -22,7 +22,7 @@ When I ran this program, a series of issues occurred. The process was far slower
 
 NOTE: At the time, I didn't understand what the flaw was. From my understanding, the capture process itself should have been much faster. What was lacking in my judgement was the fact that the **saving of the images to disk** was the actual bottleneck. In a real streaming scenario, the frames aren't saved but are streamed directly to another application, which avoids this I/O-heavy operation.
 
------
+---
 
 ### Pausing the Experiment
 

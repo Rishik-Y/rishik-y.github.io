@@ -4,7 +4,7 @@ With the main logic solidified, I finally started working again on the **streami
 
 However, since this experimental work is not included in my final Pull Request for the project, I believe it's not right for me to explain it in detail here as part of my official GSoC work.
 
------
+---
 
 ### Final Project Goals: Accomplished
 
@@ -16,7 +16,7 @@ Alas, this brings my development journey to a close. I'm happy to report that al
 - **Adding notifications for Output/App-ID:** Check ✔️
 - **Adding additional features along the way:** Check ✔️
 
------
+---
 
 ### Acknowledgements
 

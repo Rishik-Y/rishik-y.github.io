@@ -4,7 +4,7 @@ Just as I thought I was finishing up the project, I learned something new that c
 
 This meant that regardless of my changes to use `xdg-shell` in `libwayshot`, the `wlr` protocols were still being used in the background for area selection.
 
------
+---
 
 ### Correcting a Flawed Assumption
 
@@ -12,7 +12,7 @@ I also learned that my initial reasoning for the switch was flawed. I had assume
 
 Of the most popular compositors, only GNOME's Mutter is a major exception.
 
------
+---
 
 ### Reverting the Change
 
@@ -20,7 +20,7 @@ Given this new information, I started working on reverting the code back from `x
 
 After changing the code back to use the original `LayerShellState`, I tested it on Sway, and area capturing ran successfully. This gave more weight to my earlier suspicion that `sway-git` was most likely just broken at that time, which is why my initial tests failed.
 
------
+---
 
 ### The COSMIC Quirk Revisited
 
