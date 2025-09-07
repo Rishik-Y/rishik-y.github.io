@@ -33,7 +33,7 @@ It wasn't fancy, but it was a critical success. The prototype worked.
 
 I also Added cursor logic already present in wlr method.
 
-The image below is one of the very first captures I took using the new `ext_image_*` backend on Sway-git. \
+The image below is one of the very first captures I took using the new `ext_image_*` backend on Sway-git. 
 
 ![Wayshot-11111111.webp](Wayshot-11111111.webp)
 
