@@ -4,6 +4,23 @@ as in Relecting back on my thought process and writing it here.
 
 Now let me reiterate what i am trying to do.
 
+### Prerequisite Knowledge (With Some Quips!)
+
+Before diving into the technical details, let me address some fundamental concepts you might encounter. If you find yourself confused by terms like "Wayland," "compositor," or "sway," don't worry—I've got you covered with some helpful (and slightly sarcastic) explanations:
+
+**🤔 Wait, what's Wayland?**  
+If you're reading this and thinking "What is Wayland? (Did you even understand what I wrote till this point!?!)"—no judgment here! Wayland is the modern display server protocol for Linux. For a detailed explanation, check out [What is Linux & Wayland?](What_is_linux.md)
+
+**🪟 What's a Wayland Compositor?**  
+A Wayland compositor manages windows, handles input, and renders everything you see on screen. Think of it as the traffic controller for your desktop. Learn more [here](What_is_wayland_compositor.md)
+
+**🏗️ What's Sway?**  
+[Sway](https://github.com/swaywm/sway "sway") is an [i3](https://github.com/i3wm/i3 "i3")-compatible tiling Wayland compositor. If you're unfamiliar with tiling window managers, imagine windows that automatically organize themselves like perfectly arranged puzzle pieces instead of floating around chaotically.
+
+**💡 Pro Tip:** If any of these concepts are new to you, I highly recommend reading through the linked explanations first. It'll make the rest of this journey much more enjoyable!
+
+---
+
 ### What am i trying to do?
 
 As of now, Wayland doesn’t have a fully standardized method for display and top-level window capture. Most compositors rely on their own methods, or, in the case of wlroots-based compositors, use tools like `wlr-screencopy`. 
@@ -32,19 +49,11 @@ ext-image-copy-capture-v1: This protocol allows clients to ask the compositor to
 
 #### "Sorry i am really confused.. What exactly are these? What do they really do? Why are they seperated into 2 protocols? Why not keep in just 1 protocol like wlr-screencopy?"
 
-I Know this is very confusing so lets just understand in simple terms: 
-we are running sway with a 2 monitor setup,
+I know this is very confusing, so let's understand it in simple terms using an example:
 
-You dont know what sway is? 
-[sway](https://github.com/swaywm/sway "sway") is an [i3](https://github.com/swaywm/sway "i3")-compatible tiling Wayland compositor.
+Imagine we are running Sway with a 2 monitor setup.
 
-What is a Wayland compositor?
-Go through [here](What_is_wayland_compositor.md)
-
-What is wayland? (Did you even understand what i wrote till this point!?!)<br>
-Go through [here](What_is_linux.md)
-
-Now going coming back to out initial question,<br>
+Now going back to our initial question,<br>
 we are running sway with a 2 monitor setup,<br>
 Now,<br>
 Step 1: `Use ext-image-capture-source-v1`<br>
