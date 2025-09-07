@@ -1,4 +1,3 @@
-
 ## **Unifying the Save and Fallback Logic**
 
 With all the major capture features implemented and working, I turned my attention to the final integration steps. The main goals were to completely merge the saving mechanisms of the `wlr` and `ext` methods and to make the fallback logic more robust.
@@ -26,5 +25,7 @@ I also took another look at the fallback mechanism between the two capture proto
 
 Finally, I made a small but useful change to the notifications. They are now more descriptive about the *type* of capture that was taken. For example, if a user isn't capturing a full output or a specific app, the notification will now explicitly say something like **"Type: Pixel Color grab"** or **"Type: Area Cropping"**. This is much clearer and more informative for the user.
 
-<- Back: [Back](Thought_Process_11.md)<br>
-Forward: [Next](Thought_Process_13.md) ->
+<div style="display: flex; justify-content: space-between;">
+  <a href="Thought_Process_11.md">&lt;- Back</a>
+  <a href="Thought_Process_13.md">Forward: [Next] -&gt;</a>
+</div>

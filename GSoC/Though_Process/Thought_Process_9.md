@@ -28,5 +28,7 @@ NOTE: At the time, I didn't understand what the flaw was. From my understanding,
 
 After giving it a serious amount of time and not making clear progress - largely due to my flawed simulation - I decided to remove the experimental streaming block for now. I'll come back to this issue once I have a better understanding of the fundamentals involved.
 
-<- Back: [Back](Thought_Process_8.md)<br>
-Forward: [Next](Thought_Process_10.md) ->
+<div style="display: flex; justify-content: space-between;">
+  <a href="Thought_Process_8.md">&lt;- Back</a>
+  <a href="Thought_Process_10.md">Forward: [Next] -&gt;</a>
+</div>

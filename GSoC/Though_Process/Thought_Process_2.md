@@ -33,5 +33,7 @@ In simpler terms:
 - It improves **compatibility** across all major compositors (not just wlroots).
 - It sets the stage for integrating with **portals** and **security-friendly workflows**.
 
-<- Back [Back](Thought_Process_1.md)<br>
-Forward: [Next](Thought_Process_3.md) ->
+<div style="display: flex; justify-content: space-between;">
+  <a href="Thought_Process_1.md">&lt;- Back</a>
+  <a href="Thought_Process_3.md">Forward: [Next] -&gt;</a>
+</div>

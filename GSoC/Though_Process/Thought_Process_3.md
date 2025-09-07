@@ -70,5 +70,7 @@ and makes it easier to test Wayshot in realistic environments.
 
 Now forward to digging into actual protocol-level work now that the environment is in place.
 
-<- Back [Back](Thought_Process_2.md)<br>
-Forward: [Next](Thought_Process_4.md) ->
+<div style="display: flex; justify-content: space-between;">
+  <a href="Thought_Process_2.md">&lt;- Back</a>
+  <a href="Thought_Process_4.md">Forward: [Next] -&gt;</a>
+</div>

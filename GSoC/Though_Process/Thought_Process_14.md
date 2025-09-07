@@ -26,4 +26,7 @@ You can now see the final changes I made [here](../End_Changes.md)<br>
 or<br>
 You can wish to view some of my interesting Bugs [here](Blooper.md)
 
-<- Back: [Back](Thought_Process_13.md)
+<div style="display: flex; justify-content: space-between;">
+  <a href="Thought_Process_13.md">&lt;- Back</a>
+  <span></span>
+</div>

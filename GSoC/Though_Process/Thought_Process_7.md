@@ -34,5 +34,7 @@ To improve capture reliability, I added a `Pending` state to the `FrameState`. B
 
 I was still finding the `DynamicImage` conversion logic within `libwayshot` a bit complicated to work with. So, for my new `ext` method, I implemented a more direct PNG converter. This new logic lives in the main `wayshot` binary's code rather than in the `libwayshot` library, which simplified the implementation for now.
 
-<- Back: [Back](Thought_Process_6.md)<br>
-Forward: [Next](Thought_Process_8.md) ->
+<div style="display: flex; justify-content: space-between;">
+  <a href="Thought_Process_6.md">&lt;- Back</a>
+  <a href="Thought_Process_8.md">Forward: [Next] -&gt;</a>
+</div>

@@ -43,5 +43,7 @@ Even though it’s not part of Wayshot directly, this little detour helped me:
 * See how roundtrips and event queues are used to sync state
 * Feel a little less lost in the Wayland world :)
 
-<- Back [Back](Thought_Process_3.md)<br>
-Forward: [Next](Thought_Process_5.md) ->
+<div style="display: flex; justify-content: space-between;">
+  <a href="Thought_Process_3.md">&lt;- Back</a>
+  <a href="Thought_Process_5.md">Forward: [Next] -&gt;</a>
+</div>

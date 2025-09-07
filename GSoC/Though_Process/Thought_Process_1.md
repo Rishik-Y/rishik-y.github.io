@@ -89,5 +89,7 @@ Look, these protocols are aim to be adopted across multiple compositors, includi
 
 In other words: one capture API to rule them all.
 
-<- Back [GSOC Homepage](../GSoC.md)<br>
-Forward: [Next](Thought_Process_2.md) ->
+<div style="display: flex; justify-content: space-between;">
+  <a href="../GSoC.md">&lt;- Back [GSOC Homepage]</a>
+  <a href="Thought_Process_2.md">Forward: [Next] -&gt;</a>
+</div>

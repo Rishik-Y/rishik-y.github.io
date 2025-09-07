@@ -47,5 +47,7 @@ NOTE: This change, however, **did not** fix the issue on COSMIC. At this point, 
 
 I assumed this was a separate, deeper bug in either my code's interaction with COSMIC or COSMIC's protocol implementation itself. I made a conscious decision to ignore it for the moment and focus on getting everything 100% functional on `sway-git` first. I'd have to circle back to the COSMIC problem later.
 
-<- Back: [Back](Thought_Process_5.md)<br>
-Forward: [Next](Thought_Process_7.md) ->
+<div style="display: flex; justify-content: space-between;">
+  <a href="Thought_Process_5.md">&lt;- Back</a>
+  <a href="Thought_Process_7.md">Forward: [Next] -&gt;</a>
+</div>
